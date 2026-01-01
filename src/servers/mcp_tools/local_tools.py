@@ -3,6 +3,13 @@
 MCP Server with Pydantic Models - SSE HTTP Transport
 Provides type-safe tool inputs and structured outputs over HTTP with SSE
 """
+import sys
+from pathlib import Path
+
+# Add project root to path if running directly
+if __name__ == "__main__":
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    sys.path.insert(0, str(project_root))
 
 import logging
 from typing import Any, Optional
@@ -18,11 +25,11 @@ from starlette.routing import Mount, Route
 import uvicorn
 #!/usr/bin/env python3
 import sys
-from pathlib import Path
+# from pathlib import Path
 
-# Add the project root (3 levels up from this file) to Python path
-project_root = Path(__file__).resolve().parent.parent.parent.parent
-sys.path.insert(0, str(project_root))
+# # Add the project root (3 levels up from this file) to Python path
+# project_root = Path(__file__).resolve().parent.parent.parent.parent
+# sys.path.insert(0, str(project_root))
 
 # Now your imports will work
 from src.servers.models.local_models import (
